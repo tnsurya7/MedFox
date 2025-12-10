@@ -1,0 +1,5 @@
+# Ignore files that might cause deployment issues
+prisma/seed.ts
+*.config.ts
+.env
+.env.local
