@@ -13,10 +13,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const baseClasses = 'inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
     
     const variants = {
-      primary: 'bg-primary-gold text-primary-navy hover:shadow-md focus:ring-primary-gold',
-      secondary: 'bg-white text-primary-gold border-2 border-primary-gold hover:bg-primary-gold hover:text-primary-navy focus:ring-primary-gold',
-      outline: 'bg-transparent text-primary-navy border border-gray-300 hover:bg-gray-50 focus:ring-primary-gold',
-      ghost: 'bg-transparent text-primary-navy hover:bg-gray-100 focus:ring-primary-gold'
+      primary: 'bg-primary-gold text-primary-navy hover:shadow-lg hover:shadow-primary-gold/25 hover:scale-105 focus:ring-primary-gold transform transition-all duration-200',
+      secondary: 'bg-white text-primary-gold border-2 border-primary-gold hover:bg-primary-gold hover:text-primary-navy hover:shadow-lg hover:scale-105 focus:ring-primary-gold transform transition-all duration-200',
+      outline: 'bg-transparent text-primary-navy border border-gray-300 hover:bg-gray-50 hover:border-primary-gold hover:text-primary-gold hover:scale-105 focus:ring-primary-gold transform transition-all duration-200',
+      ghost: 'bg-transparent text-primary-navy hover:bg-gray-100 hover:scale-105 focus:ring-primary-gold transform transition-all duration-200'
     }
     
     const sizes = {

@@ -21,11 +21,15 @@ export function Footer() {
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-primary-gold" />
-                <span>(555) 123-4567</span>
+                <a href="tel:+15551234567" className="hover:text-primary-gold transition-colors duration-300">
+                  (555) 123-4567
+                </a>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-primary-gold" />
-                <span>info@medfox.com</span>
+                <a href="mailto:info@medfox.com" className="hover:text-primary-gold transition-colors duration-300">
+                  info@medfox.com
+                </a>
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4 text-primary-gold" />
@@ -115,16 +119,18 @@ export function Footer() {
           <p className="text-gray-300 text-sm">
             © 2024 MedFox. All rights reserved.
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="/privacy" className="text-gray-300 hover:text-primary-gold text-sm transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="text-gray-300 hover:text-primary-gold text-sm transition-colors">
-              Terms of Service
-            </Link>
-            <Link href="/hipaa" className="text-gray-300 hover:text-primary-gold text-sm transition-colors">
-              HIPAA Compliance
-            </Link>
+          <div className="mt-4 md:mt-0">
+            <span className="text-gray-300 text-sm">
+              Developed by{' '}
+              <a 
+                href="https://suryakumar-portfolio-chi.vercel.app/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-primary-gold transition-colors duration-300 underline"
+              >
+                Surya Kumar M
+              </a>
+            </span>
           </div>
         </div>
       </div>

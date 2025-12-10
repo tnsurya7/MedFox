@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
+import { FadeInView } from '@/components/ui/FadeInView'
 import { 
   Mail, 
   Phone, 
@@ -106,80 +107,98 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Contact Information */}
           <div className="space-y-6">
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary-gold/10 rounded-2xl flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-primary-gold" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-primary-navy mb-2">Phone</h3>
-                    <p className="text-gray-600">(555) 123-4567</p>
-                    <p className="text-sm text-gray-500 mt-1">Mon-Fri 8AM-6PM EST</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-accent-green/10 rounded-2xl flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-accent-green" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-primary-navy mb-2">Email</h3>
-                    <p className="text-gray-600">info@medfox.com</p>
-                    <p className="text-sm text-gray-500 mt-1">We'll respond within 24 hours</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary-navy/10 rounded-2xl flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-primary-navy" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-primary-navy mb-2">Office</h3>
-                    <p className="text-gray-600">
-                      123 Healthcare Ave<br />
-                      Medical City, MC 12345
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center">
-                    <Clock className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-primary-navy mb-2">Business Hours</h3>
-                    <div className="text-gray-600 text-sm space-y-1">
-                      <div>Monday - Friday: 8:00 AM - 6:00 PM</div>
-                      <div>Saturday: 9:00 AM - 2:00 PM</div>
-                      <div>Sunday: Closed</div>
+            <FadeInView delay={0} direction="left">
+              <Card className="group relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardContent className="p-8 relative">
+                  <div className="flex items-start space-x-4 mt-2">
+                    <div className="w-12 h-12 bg-primary-gold/10 rounded-2xl flex items-center justify-center mt-1 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                      <Phone className="w-6 h-6 text-primary-gold group-hover:animate-pulse" />
+                    </div>
+                    <div className="pt-1">
+                      <h3 className="font-semibold text-primary-navy mb-3 group-hover:text-primary-gold transition-colors duration-300">Phone</h3>
+                      <a href="tel:+15551234567" className="text-gray-600 mb-1 hover:text-primary-gold transition-colors duration-300 cursor-pointer block font-medium">
+                        (555) 123-4567
+                      </a>
+                      <p className="text-sm text-gray-500 group-hover:text-gray-600 transition-colors duration-300">Mon-Fri 8AM-6PM EST</p>
                     </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </FadeInView>
+
+            <FadeInView delay={200} direction="left">
+              <Card className="group relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardContent className="p-8 relative">
+                  <div className="flex items-start space-x-4 mt-2">
+                    <div className="w-12 h-12 bg-accent-green/10 rounded-2xl flex items-center justify-center mt-1 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                      <Mail className="w-6 h-6 text-accent-green group-hover:animate-pulse" />
+                    </div>
+                    <div className="pt-1">
+                      <h3 className="font-semibold text-primary-navy mb-3 group-hover:text-accent-green transition-colors duration-300">Email</h3>
+                      <a href="mailto:info@medfox.com" className="text-gray-600 mb-1 hover:text-accent-green transition-colors duration-300 cursor-pointer block font-medium">
+                        info@medfox.com
+                      </a>
+                      <p className="text-sm text-gray-500 group-hover:text-gray-600 transition-colors duration-300">We'll respond within 24 hours</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </FadeInView>
+
+            <FadeInView delay={400} direction="left">
+              <Card className="group relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-navy/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardContent className="p-8 relative">
+                  <div className="flex items-start space-x-4 mt-2">
+                    <div className="w-12 h-12 bg-primary-navy/10 rounded-2xl flex items-center justify-center mt-1 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                      <MapPin className="w-6 h-6 text-primary-navy group-hover:animate-pulse" />
+                    </div>
+                    <div className="pt-1">
+                      <h3 className="font-semibold text-primary-navy mb-3 group-hover:text-primary-navy transition-colors duration-300">Office</h3>
+                      <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+                        123 Healthcare Ave<br />
+                        Medical City, MC 12345
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </FadeInView>
+
+            <FadeInView delay={600} direction="left">
+              <Card className="group relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardContent className="p-8 relative">
+                  <div className="flex items-start space-x-4 mt-2">
+                    <div className="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mt-1 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                      <Clock className="w-6 h-6 text-blue-600 group-hover:animate-pulse" />
+                    </div>
+                    <div className="pt-1">
+                      <h3 className="font-semibold text-primary-navy mb-3 group-hover:text-blue-600 transition-colors duration-300">Business Hours</h3>
+                      <div className="text-gray-600 text-sm space-y-1 group-hover:text-gray-700 transition-colors duration-300">
+                        <div>Monday - Friday: 8:00 AM - 6:00 PM</div>
+                        <div>Saturday: 9:00 AM - 2:00 PM</div>
+                        <div>Sunday: Closed</div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </FadeInView>
           </div>
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card>
-              <CardHeader>
-                <CardTitle>Send us a Message</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+            <FadeInView delay={200} direction="right">
+              <Card className="group relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-gold/5 to-accent-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardHeader className="relative">
+                  <CardTitle className="group-hover:text-primary-gold transition-colors duration-300">Send us a Message</CardTitle>
+                </CardHeader>
+                <CardContent className="relative">
+                  <form onSubmit={handleSubmit} className="space-y-6">
                   {error && (
                     <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-2xl text-sm">
                       {error}
@@ -247,9 +266,10 @@ export default function ContactPage() {
                   >
                     Send Message
                   </Button>
-                </form>
-              </CardContent>
-            </Card>
+                  </form>
+                </CardContent>
+              </Card>
+            </FadeInView>
           </div>
         </div>
 
