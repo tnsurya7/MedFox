@@ -1,0 +1,168 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  role         UserRole @default(CLIENT)
+  createdAt    DateTime @default(now()) @map("created_at")
+  lastLogin    DateTime? @map("last_login")
+  
+  // Relations
+  claimEvents  ClaimEvent[]
+  auditLogs    AuditLog[]
+  
+  @@map("users")
+}
+
+model Client {
+  id            String   @id @default(cuid())
+  name          String
+  address       String?
+  phone         String?
+  tin           String?  // Tax Identification Number
+  contactPerson String?  @map("contact_person")
+  createdAt     DateTime @default(now()) @map("created_at")
+  
+  // Relations
+  providers Provider[]
+  patients  Patient[]
+  claims    Claim[]
+  
+  @@map("clients")
+}
+
+model Provider {
+  id        String   @id @default(cuid())
+  clientId  String   @map("client_id")
+  name      String
+  npi       String?  // National Provider Identifier
+  specialty String?
+  
+  // Relations
+  client Client @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  claims Claim[]
+  
+  @@map("providers")
+}
+
+model Patient {
+  id         String   @id @default(cuid())
+  clientId   String   @map("client_id")
+  name       String
+  dob        DateTime? // Date of Birth
+  gender     String?
+  identifier String?  // Patient identifier/MRN
+  
+  // Relations
+  client Client @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  claims Claim[]
+  
+  @@map("patients")
+}
+
+model Claim {
+  id            String      @id @default(cuid())
+  clientId      String      @map("client_id")
+  providerId    String      @map("provider_id")
+  patientId     String      @map("patient_id")
+  claimNumber   String      @unique @map("claim_number")
+  dateOfService DateTime    @map("date_of_service")
+  totalCharge   Decimal     @map("total_charge") @db.Decimal(10, 2)
+  status        ClaimStatus @default(SUBMITTED)
+  createdAt     DateTime    @default(now()) @map("created_at")
+  updatedAt     DateTime    @updatedAt @map("updated_at")
+  
+  // Relations
+  client      Client       @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  provider    Provider     @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  patient     Patient      @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  events      ClaimEvent[]
+  payments    Payment[]
+  denials     Denial[]
+  
+  @@map("claims")
+}
+
+model ClaimEvent {
+  id        String    @id @default(cuid())
+  claimId   String    @map("claim_id")
+  eventType String    @map("event_type")
+  note      String?
+  createdBy String    @map("created_by")
+  createdAt DateTime  @default(now()) @map("created_at")
+  
+  // Relations
+  claim Claim @relation(fields: [claimId], references: [id], onDelete: Cascade)
+  user  User  @relation(fields: [createdBy], references: [id])
+  
+  @@map("claim_events")
+}
+
+model Payment {
+  id           String   @id @default(cuid())
+  claimId      String   @map("claim_id")
+  amount       Decimal  @db.Decimal(10, 2)
+  dateReceived DateTime @map("date_received")
+  payer        String
+  method       String?
+  
+  // Relations
+  claim Claim @relation(fields: [claimId], references: [id], onDelete: Cascade)
+  
+  @@map("payments")
+}
+
+model Denial {
+  id          String    @id @default(cuid())
+  claimId     String    @map("claim_id")
+  denialCode  String    @map("denial_code")
+  reason      String
+  resolved    Boolean   @default(false)
+  resolvedAt  DateTime? @map("resolved_at")
+  
+  // Relations
+  claim Claim @relation(fields: [claimId], references: [id], onDelete: Cascade)
+  
+  @@map("denials")
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  action    String
+  ip        String?
+  userAgent String?  @map("user_agent")
+  createdAt DateTime @default(now()) @map("created_at")
+  
+  // Relations
+  user User @relation(fields: [userId], references: [id])
+  
+  @@map("audit_logs")
+}
+
+enum UserRole {
+  ADMIN
+  CODER
+  BILLER
+  CLIENT
+}
+
+enum ClaimStatus {
+  SUBMITTED
+  PENDING
+  PAID
+  DENIED
+  APPEALED
+}

@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #203040;
+  --primary-gold: #F5C25A;
+  --primary-navy: #203040;
+  --muted-background: #F7F7F8;
+  --accent-green: #2E7D6B;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary-gold: var(--primary-gold);
+  --color-primary-navy: var(--primary-navy);
+  --color-muted-background: var(--muted-background);
+  --color-accent-green: var(--accent-green);
+  --font-sans: Inter, system-ui, sans-serif;
+  --radius-2xl: 1.25rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+/* Custom utility classes */
+.btn-primary {
+  @apply bg-primary-gold text-primary-navy font-medium px-6 py-3 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200;
+}
+
+.btn-secondary {
+  @apply bg-white text-primary-gold border-2 border-primary-gold font-medium px-6 py-3 rounded-2xl hover:bg-primary-gold hover:text-primary-navy transition-all duration-200;
+}
+
+.card {
+  @apply bg-white rounded-2xl shadow-sm border border-gray-100 p-6;
+}
