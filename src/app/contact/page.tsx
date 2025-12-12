@@ -153,6 +153,9 @@ export default function ContactPage() {
                       <a href="mailto:contact@medfoxrcm.com" className="text-gray-700 mb-1 hover:text-green-600 transition-colors duration-300 cursor-pointer block font-medium">
                         contact@medfoxrcm.com
                       </a>
+                      <a href="mailto:satheesh@medfoxrcm.com" className="text-gray-700 mb-2 hover:text-green-600 transition-colors duration-300 cursor-pointer block font-medium">
+                        satheesh@medfoxrcm.com
+                      </a>
                       <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">We'll respond within 24 hours</p>
                     </div>
                   </div>
