@@ -150,8 +150,8 @@ export default function ContactPage() {
                     </div>
                     <div className="pt-1">
                       <h3 className="font-semibold text-gray-900 mb-3 group-hover:text-green-600 transition-colors duration-300">Email</h3>
-                      <a href="mailto:info@medfoxrcm.com" className="text-gray-700 mb-1 hover:text-green-600 transition-colors duration-300 cursor-pointer block font-medium">
-                        info@medfoxrcm.com
+                      <a href="mailto:contact@medfoxrcm.com" className="text-gray-700 mb-1 hover:text-green-600 transition-colors duration-300 cursor-pointer block font-medium">
+                        contact@medfoxrcm.com
                       </a>
                       <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">We'll respond within 24 hours</p>
                     </div>
@@ -234,7 +234,7 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      placeholder="your.email@example.com"
+                      placeholder="contact@medfoxrcm.com"
                     />
                   </div>
 
@@ -245,7 +245,7 @@ export default function ContactPage() {
                       type="tel"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="(555) 123-4567"
+                      placeholder="+91 4435573476"
                     />
                     <Input
                       label="Company/Practice Name"

@@ -22,19 +22,19 @@ export function Footer() {
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-medfox-orange" />
-                <a href="tel:+914443323322" className="text-gray-700 hover:text-medfox-orange transition-colors duration-300">
-                  +91 44-43323322
+                <a href="tel:+914435573476" className="text-gray-700 hover:text-medfox-orange transition-colors duration-300">
+                  +91 4435573476
                 </a>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-medfox-orange" />
-                <a href="mailto:info@medfoxrcm.com" className="text-gray-700 hover:text-medfox-orange transition-colors duration-300">
-                  info@medfoxrcm.com
+                <a href="mailto:contact@medfoxrcm.com" className="text-gray-700 hover:text-medfox-orange transition-colors duration-300">
+                  contact@medfoxrcm.com
                 </a>
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4 text-medfox-orange" />
-                <span className="text-gray-700">MedFox Healthcare Head Office, 3rd Floor, MIG - 87, Laxminilayam, Road No - 01, KPHB, Hyderabad, Telangana - 500018, India</span>
+                <span className="text-gray-700">MedFox Healthcare Office, 152/3, 6th Avenue, Anna Nagar East, Chennai - 600 102</span>
               </div>
             </div>
           </div>
