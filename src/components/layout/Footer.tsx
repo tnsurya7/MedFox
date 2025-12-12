@@ -28,9 +28,14 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-medfox-orange" />
-                <a href="mailto:contact@medfoxrcm.com" className="text-gray-700 hover:text-medfox-orange transition-colors duration-300">
-                  contact@medfoxrcm.com
-                </a>
+                <div className="flex flex-col space-y-1">
+                  <a href="mailto:contact@medfoxrcm.com" className="text-gray-700 hover:text-medfox-orange transition-colors duration-300">
+                    contact@medfoxrcm.com
+                  </a>
+                  <a href="mailto:satheesh@medfoxrcm.com" className="text-gray-700 hover:text-medfox-orange transition-colors duration-300">
+                    satheesh@medfoxrcm.com
+                  </a>
+                </div>
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4 text-medfox-orange" />
