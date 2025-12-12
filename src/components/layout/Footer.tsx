@@ -29,7 +29,7 @@ export function Footer() {
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-medfox-orange" />
                 <div className="flex flex-col space-y-1">
-                  <a href="mailto:contact@medfoxrcm.com" className="text-gray-700 hover:text-medfox-orange transition-colors duration-300">
+                  <a href="mailto:medfoxrcm@gmail.com" className="text-gray-700 hover:text-medfox-orange transition-colors duration-300">
                     contact@medfoxrcm.com
                   </a>
                   <a href="mailto:satheesh@medfoxrcm.com" className="text-gray-700 hover:text-medfox-orange transition-colors duration-300">
@@ -103,6 +103,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/courses" className="text-gray-600 hover:text-medfox-orange transition-colors">
+                  Courses
+                </Link>
+              </li>
+              <li>
                 <Link href="/careers" className="text-gray-600 hover:text-medfox-orange transition-colors">
                   Careers
                 </Link>
@@ -114,7 +119,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/auth/login" className="text-gray-600 hover:text-medfox-orange transition-colors">
-                  Client Portal
+                  Course Registration
                 </Link>
               </li>
             </ul>

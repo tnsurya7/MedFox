@@ -39,12 +39,29 @@ export default function ContactPage() {
         body: JSON.stringify(formData),
       })
 
-      const data = await response.json()
-
+      // Check if response is ok before trying to parse JSON
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to send message')
+        // Try to get error message from response
+        let errorMessage = 'Failed to send message'
+        try {
+          const errorData = await response.json()
+          errorMessage = errorData.error || errorMessage
+        } catch {
+          // If JSON parsing fails, use status text
+          errorMessage = `Server error: ${response.status} ${response.statusText}`
+        }
+        throw new Error(errorMessage)
       }
 
+      // Parse JSON response
+      let data
+      try {
+        data = await response.json()
+      } catch (jsonError) {
+        throw new Error('Invalid response from server. Please try again.')
+      }
+
+      // Success!
       setSuccess(true)
       setFormData({
         name: '',
@@ -53,8 +70,22 @@ export default function ContactPage() {
         company: '',
         message: '',
       })
+
+      // Auto-hide success message after 5 seconds
+      setTimeout(() => {
+        setSuccess(false)
+      }, 5000)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to send message')
+      console.error('Contact form error:', err)
+      
+      // Handle different types of errors
+      if (err instanceof TypeError && err.message.includes('fetch')) {
+        setError('Network error. Please check your connection and try again.')
+      } else if (err instanceof Error) {
+        setError(err.message)
+      } else {
+        setError('An unexpected error occurred. Please try again.')
+      }
     } finally {
       setLoading(false)
     }
@@ -67,28 +98,7 @@ export default function ContactPage() {
     }))
   }
 
-  if (success) {
-    return (
-      <div className="min-h-screen bg-white py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="text-center p-8 card-premium">
-            <CardContent className="space-y-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500/20 to-green-400/10 rounded-full flex items-center justify-center mx-auto animate-pulse-glow">
-                <CheckCircle className="w-8 h-8 text-green-600" />
-              </div>
-              <h1 className="text-3xl font-bold text-gray-900">Thank You!</h1>
-              <p className="text-xl text-gray-700">
-                Your message has been sent successfully. We'll get back to you within 24 hours.
-              </p>
-              <Button onClick={() => setSuccess(false)}>
-                Send Another Message
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-    )
-  }
+
 
   return (
     <div className="min-h-screen bg-white py-20">
@@ -150,7 +160,7 @@ export default function ContactPage() {
                     </div>
                     <div className="pt-1">
                       <h3 className="font-semibold text-gray-900 mb-3 group-hover:text-green-600 transition-colors duration-300">Email</h3>
-                      <a href="mailto:contact@medfoxrcm.com" className="text-gray-700 mb-1 hover:text-green-600 transition-colors duration-300 cursor-pointer block font-medium">
+                      <a href="mailto:medfoxrcm@gmail.com" className="text-gray-700 mb-1 hover:text-green-600 transition-colors duration-300 cursor-pointer block font-medium">
                         contact@medfoxrcm.com
                       </a>
                       <a href="mailto:satheesh@medfoxrcm.com" className="text-gray-700 mb-2 hover:text-green-600 transition-colors duration-300 cursor-pointer block font-medium">
@@ -218,6 +228,13 @@ export default function ContactPage() {
                   {error && (
                     <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-2xl text-sm">
                       {error}
+                    </div>
+                  )}
+
+                  {success && (
+                    <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-2xl text-sm flex items-center animate-fade-in-scale">
+                      <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
+                      <span className="font-medium">✅ Message sent successfully! We'll respond within 24 hours.</span>
                     </div>
                   )}
 
@@ -301,7 +318,22 @@ export default function ContactPage() {
                 Schedule a free consultation to see how we can improve your 
                 revenue cycle performance and reduce administrative burden.
               </p>
-              <Button variant="secondary" size="lg" className="group-hover:scale-105 transition-transform duration-300">
+              <Button 
+                variant="secondary" 
+                size="lg" 
+                className="group-hover:scale-105 transition-transform duration-300"
+                onClick={() => {
+                  const formElement = document.querySelector('form');
+                  if (formElement) {
+                    formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Focus on the first input field
+                    const firstInput = formElement.querySelector('input[name="name"]') as HTMLInputElement;
+                    if (firstInput) {
+                      setTimeout(() => firstInput.focus(), 500);
+                    }
+                  }
+                }}
+              >
                 Schedule Free Consultation
               </Button>
             </CardContent>

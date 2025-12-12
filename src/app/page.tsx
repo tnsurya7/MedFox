@@ -289,6 +289,18 @@ export default function Home() {
               </div>
             </FadeInView>
           </div>
+          
+          {/* Get Started CTA */}
+          <div className="text-center mt-16">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button size="lg" asChild>
+                <Link href="/contact">Get Started</Link>
+              </Button>
+              <Button variant="blue" size="lg" asChild>
+                <Link href="/auth/login">Course Registration</Link>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -423,6 +435,9 @@ export default function Home() {
               <Link href="/contact">Schedule Consultation</Link>
             </Button>
             <Button variant="secondary" size="lg" asChild>
+              <Link href="/services">Explore Services</Link>
+            </Button>
+            <Button variant="outline" size="lg" asChild>
               <Link href="/contact">Get Quote</Link>
             </Button>
           </div>

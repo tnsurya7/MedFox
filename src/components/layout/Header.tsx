@@ -59,6 +59,9 @@ export function Header() {
             <Link href="/industries" className={`transition-colors ${pathname === '/industries' ? 'text-medfox-orange font-semibold' : 'text-gray-900 hover:text-medfox-orange'}`}>
               Industries
             </Link>
+            <Link href="/courses" className={`transition-colors ${pathname === '/courses' ? 'text-medfox-orange font-semibold' : 'text-gray-900 hover:text-medfox-orange'}`}>
+              Courses
+            </Link>
             <Link href="/about" className={`transition-colors ${pathname === '/about' ? 'text-medfox-orange font-semibold' : 'text-gray-900 hover:text-medfox-orange'}`}>
               About
             </Link>
@@ -72,9 +75,9 @@ export function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link href="/auth/login" className="text-gray-900 hover:text-medfox-orange transition-colors">
-              Sign In
-            </Link>
+            <Button variant="blue" asChild>
+              <Link href="/auth/login">Course Registration</Link>
+            </Button>
             <Button asChild>
               <Link href="/contact">Get Started</Link>
             </Button>
@@ -118,9 +121,9 @@ export function Header() {
                 Contact
               </Link>
               <div className="pt-4 space-y-2">
-                <Link href="/auth/login" className="block py-2 text-gray-900">
-                  Sign In
-                </Link>
+                <Button variant="blue" className="w-full" asChild>
+                  <Link href="/auth/login">Course Registration</Link>
+                </Button>
                 <Button className="w-full" asChild>
                   <Link href="/contact">Get Started</Link>
                 </Button>

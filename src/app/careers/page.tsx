@@ -166,7 +166,7 @@ export default function CareersPage() {
                   </p>
                   <div className="bg-white rounded-xl p-4 border border-blue-200">
                     <p className="font-medium text-blue-900">
-                      <a href="mailto:contact@medfoxrcm.com" className="hover:underline">
+                      <a href="mailto:medfoxrcm@gmail.com" className="hover:underline">
                         contact@medfoxrcm.com
                       </a>
                     </p>
@@ -466,7 +466,7 @@ export default function CareersPage() {
                   Send us your resume and let us know how you'd like to contribute to MedFoxRCM.
                 </p>
                 <Button variant="secondary" size="lg" asChild>
-                  <a href="mailto:contact@medfoxrcm.com">
+                  <a href="mailto:medfoxrcm@gmail.com">
                     Send Your Resume
                   </a>
                 </Button>

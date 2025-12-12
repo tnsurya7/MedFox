@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, forwardRef, ReactElement, cloneElement } from 're
 import { cn } from '@/lib/utils'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'blue'
   size?: 'sm' | 'md' | 'lg'
   loading?: boolean
   asChild?: boolean
@@ -16,7 +16,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       primary: 'btn-premium text-white hover:shadow-xl hover:shadow-medfox-orange/30 hover:scale-105 focus:ring-medfox-orange transform transition-all duration-300 relative overflow-hidden',
       secondary: 'bg-gradient-to-r from-medfox-blue to-medfox-blue/90 text-white border-2 border-medfox-blue hover:from-medfox-blue/90 hover:to-medfox-blue hover:shadow-lg hover:shadow-medfox-blue/25 hover:scale-105 focus:ring-medfox-blue transform transition-all duration-300',
       outline: 'bg-transparent text-gray-900 border-2 border-medfox-blue hover:bg-medfox-blue hover:text-white hover:border-medfox-blue hover:scale-105 focus:ring-medfox-blue transform transition-all duration-300',
-      ghost: 'bg-transparent text-gray-900 hover:bg-gradient-to-r hover:from-medfox-orange/10 hover:to-medfox-blue/10 hover:scale-105 focus:ring-medfox-blue transform transition-all duration-300'
+      ghost: 'bg-transparent text-gray-900 hover:bg-gradient-to-r hover:from-medfox-orange/10 hover:to-medfox-blue/10 hover:scale-105 focus:ring-medfox-blue transform transition-all duration-300',
+      blue: 'bg-gradient-to-r from-medfox-blue to-medfox-blue/90 text-white hover:shadow-xl hover:shadow-medfox-blue/40 hover:scale-105 focus:ring-medfox-blue transform transition-all duration-300 relative overflow-hidden animate-pulse-glow'
     }
     
     const sizes = {
