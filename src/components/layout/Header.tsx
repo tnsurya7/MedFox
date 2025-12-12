@@ -111,6 +111,9 @@ export function Header() {
               <Link href="/industries" className={`block py-2 ${pathname === '/industries' ? 'text-medfox-orange font-semibold' : 'text-gray-900'}`}>
                 Industries
               </Link>
+              <Link href="/courses" className={`block py-2 ${pathname === '/courses' ? 'text-medfox-orange font-semibold' : 'text-gray-900'}`}>
+                Courses
+              </Link>
               <Link href="/about" className={`block py-2 ${pathname === '/about' ? 'text-medfox-orange font-semibold' : 'text-gray-900'}`}>
                 About
               </Link>
