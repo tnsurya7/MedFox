@@ -215,8 +215,8 @@ export async function POST(request: NextRequest) {
       port: 587,
       secure: false,
       auth: {
-        user: 'medfoxrcm@gmail.com',
-        pass: 'lxes mzbe pdcg ouvz',
+        user: process.env.SMTP_USER || 'medfoxrcm@gmail.com',
+        pass: process.env.SMTP_PASSWORD || 'lxes mzbe pdcg ouvz',
       },
       tls: {
         rejectUnauthorized: false
