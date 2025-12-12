@@ -228,7 +228,7 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      placeholder="Your full name"
+                      placeholder="Mukesh Kumar M"
                     />
                     <Input
                       label="Email Address *"
