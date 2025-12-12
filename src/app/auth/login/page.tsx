@@ -191,7 +191,7 @@ export default function CourseRegistrationPage() {
               {success && (
                 <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-2xl text-sm flex items-center animate-fade-in-scale">
                   <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
-                  <span className="font-medium">✅ Registration submitted successfully! We'll contact you within 24 hours.</span>
+                  <span className="font-medium"> Registration submitted successfully! We'll contact you within 24 hours.</span>
                 </div>
               )}
 

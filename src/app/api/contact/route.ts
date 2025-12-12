@@ -63,7 +63,7 @@ const getAdminEmailTemplate = (name: string, email: string, phone: string, compa
                     <span class="info-value">${phone || 'Not provided'}</span>
                 </div>
                 <div class="info-row">
-                    <span class="info-label">🏢 Company:</span>
+                    <span class="info-label">🏢 Company or practice name:</span>
                     <span class="info-value">${company || 'Not provided'}</span>
                 </div>
             </div>
