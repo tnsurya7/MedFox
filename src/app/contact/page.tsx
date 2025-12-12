@@ -130,10 +130,10 @@ export default function ContactPage() {
                     </div>
                     <div className="pt-1">
                       <h3 className="font-semibold text-gray-900 mb-3 group-hover:text-medfox-orange transition-colors duration-300">Phone</h3>
-                      <a href="tel:+15551234567" className="text-gray-700 mb-1 hover:text-medfox-orange transition-colors duration-300 cursor-pointer block font-medium">
-                        (555) 123-4567
+                      <a href="tel:+914435573476" className="text-gray-700 mb-1 hover:text-medfox-orange transition-colors duration-300 cursor-pointer block font-medium">
+                        +91 4435573476
                       </a>
-                      <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">Mon-Fri 8AM-6PM EST</p>
+                      <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">Monday - Saturday: 10:00 AM - 6:30 PM</p>
                     </div>
                   </div>
                 </CardContent>
@@ -171,8 +171,9 @@ export default function ContactPage() {
                     <div className="pt-1">
                       <h3 className="font-semibold text-gray-900 mb-3 group-hover:text-medfox-blue transition-colors duration-300">Office</h3>
                       <p className="text-gray-700 group-hover:text-gray-800 transition-colors duration-300">
-                        123 Healthcare Ave<br />
-                        Medical City, MC 12345
+                        MedFox Healthcare Office<br />
+                        152/3, 6th Avenue, Anna Nagar East<br />
+                        Chennai - 600 102
                       </p>
                     </div>
                   </div>
@@ -191,8 +192,7 @@ export default function ContactPage() {
                     <div className="pt-1">
                       <h3 className="font-semibold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors duration-300">Business Hours</h3>
                       <div className="text-gray-700 text-sm space-y-1 group-hover:text-gray-800 transition-colors duration-300">
-                        <div>Monday - Friday: 8:00 AM - 6:00 PM</div>
-                        <div>Saturday: 9:00 AM - 2:00 PM</div>
+                        <div>Monday - Saturday: 10:00 AM - 6:30 PM</div>
                         <div>Sunday: Closed</div>
                       </div>
                     </div>

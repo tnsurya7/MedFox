@@ -22,8 +22,8 @@ export function Footer() {
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-medfox-orange" />
-                <a href="tel:+15551234567" className="text-gray-700 hover:text-medfox-orange transition-colors duration-300">
-                  (555) 123-4567
+                <a href="tel:+914443323322" className="text-gray-700 hover:text-medfox-orange transition-colors duration-300">
+                  +91 44-43323322
                 </a>
               </div>
               <div className="flex items-center space-x-2">
@@ -34,7 +34,7 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4 text-medfox-orange" />
-                <span className="text-gray-700">123 Healthcare Ave, Medical City, MC 12345</span>
+                <span className="text-gray-700">MedFox Healthcare Head Office, 3rd Floor, MIG - 87, Laxminilayam, Road No - 01, KPHB, Hyderabad, Telangana - 500018, India</span>
               </div>
             </div>
           </div>
